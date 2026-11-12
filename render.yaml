@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: radiofrance-du-jour
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python radiofrance_du_jour.py --public
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: MAX_RESUMES_HEURE
+        value: "20"
+      - key: MAX_RESUMES_JOUR
+        value: "300"
